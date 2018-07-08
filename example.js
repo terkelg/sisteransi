@@ -1,6 +1,6 @@
 'use strict';
 
-const { beep, erase, cursor } = require('./src');
+const { util, erase, cursor } = require('./src');
 
 console.log('--- test 1 ---');
 
@@ -22,4 +22,4 @@ process.stdin.write('last \n');
 
 console.log('--- test 3 ---');
 
-process.stdin.write(beep);
+process.stdin.write(util.beep);
