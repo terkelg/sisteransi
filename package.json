@@ -2,7 +2,6 @@
   "name": "sisteransi",
   "version": "0.1.1",
   "description": "ANSI escape codes for some terminal swag",
-  "homepage": "https://github.com/terkelg/sisteransi",
   "main": "src/index.js",
   "license": "MIT",
   "author": {
