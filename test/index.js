@@ -46,8 +46,8 @@ test('cursor', t => {
   t.equal(c.backward(0), '\x1b[0D');
   t.equal(c.nextLine(), '\x1b[E');
   t.equal(c.nextLine(2), '\x1b[E\x1b[E');
-  t.equal(c.prevLine(), '\x1b[F');
-  t.equal(c.prevLine(2), '\x1b[F\x1b[F');
+  t.equal(c.prevLine(), '\x1b[G\x1b[A');
+  t.equal(c.prevLine(2), '\x1b[G\x1b[A\x1b[A');
 });
 
 test('scroll', t => {
