@@ -25,7 +25,7 @@ const cursor = {
   forward: (count = 1) => `${ESC}${count}C`,
   backward: (count = 1) => `${ESC}${count}D`,
   nextLine: (count = 1) => `${ESC}E`.repeat(count),
-  prevLine: (count = 1) => `${ESC}F`.repeat(count),
+  prevLine: (count = 1) => `${ESC}A`.repeat(count),
   left: `${ESC}G`,
   hide: `${ESC}?25l`,
   show: `${ESC}?25h`
