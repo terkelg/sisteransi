@@ -19,6 +19,7 @@
   "files": [
     "src"
   ],
+  "types": "./src/sisteransi.d.ts",
   "keywords": [
     "ansi",
     "escape codes",
