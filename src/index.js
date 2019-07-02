@@ -28,7 +28,9 @@ const cursor = {
   prevLine: (count = 1) => `${ESC}F`.repeat(count),
   left: `${ESC}G`,
   hide: `${ESC}?25l`,
-  show: `${ESC}?25h`
+  show: `${ESC}?25h`,
+  save: `${ESC}7`,
+  restore: `${ESC}8`
 }
 
 const scroll = {

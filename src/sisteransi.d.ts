@@ -5,6 +5,8 @@ export namespace cursor {
     export const left: string;
     export const hide: string;
     export const show: string;
+    export const save: string;
+    export const restore: string;
 
     export function to(x: number, y: number): string;
     export function move(x: number, y: number): string;
