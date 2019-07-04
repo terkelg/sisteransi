@@ -13,7 +13,7 @@ test('basic', t => {
 });
 
 test('cursor', t => {
-  t.plan(33);
+  t.plan(37);
   let c = ansi.cursor;
   t.equal(typeof c, 'object');
   t.equal(typeof c.to, 'function');
@@ -27,6 +27,8 @@ test('cursor', t => {
   t.equal(typeof c.left, 'string');
   t.equal(typeof c.hide, 'string');
   t.equal(typeof c.show, 'string');
+  t.equal(typeof c.save, 'string');
+  t.equal(typeof c.restore, 'string');
   t.equal(c.to(0), '\x1b[1G');
   t.equal(c.to(2, 2), '\u001B[3;3H');
   t.equal(c.move(1, 4), '\x1b[1C\x1b[4B');
@@ -48,6 +50,8 @@ test('cursor', t => {
   t.equal(c.nextLine(2), '\x1b[E\x1b[E');
   t.equal(c.prevLine(), '\x1b[F');
   t.equal(c.prevLine(2), '\x1b[F\x1b[F');
+  t.equal(c.save, '\x1b7');
+  t.equal(c.restore, '\x1b8');
 });
 
 test('scroll', t => {
