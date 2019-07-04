@@ -4,12 +4,11 @@ const test = require('tape');
 const ansi = require('../src');
 
 test('basic', t => {
-  t.plan(8);
+  t.plan(6);
   t.equal(typeof ansi, 'object');
-  let expect = ['cursor', 'scroll', 'erase', 'beep', 'clear'];
+  let expect = ['cursor', 'scroll', 'erase', 'beep'];
   expect.forEach(x => t.equal(x in ansi, true));
   t.equal(typeof ansi.beep, 'string');
-  t.equal(typeof ansi.clear, 'string');
 });
 
 test('cursor', t => {

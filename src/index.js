@@ -2,7 +2,6 @@
 
 const ESC = '\x1B';
 const CSI = `${ESC}[`;
-const clear = '\u0007';
 const beep = '\u0007';
 
 const cursor = {
@@ -56,4 +55,4 @@ const erase = {
   }
 }
 
-module.exports = { cursor, scroll, erase, beep, clear };
+module.exports = { cursor, scroll, erase, beep };
