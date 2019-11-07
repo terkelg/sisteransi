@@ -25,6 +25,7 @@ export namespace scroll {
 
 export namespace erase {
     export const screen: string;
+    export const screenEnd: string;
     export const line: string;
     export const lineEnd: string;
     export const lineStart: string;
