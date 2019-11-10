@@ -8,7 +8,7 @@ export namespace cursor {
     export const save: string;
     export const restore: string;
 
-    export function to(x: number, y: number): string;
+    export function to(x: number, y?: number): string;
     export function move(x: number, y: number): string;
     export function up(count: number): string;
     export function down(count: number): string;
