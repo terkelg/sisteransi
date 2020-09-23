@@ -103,6 +103,12 @@ Erase from the current cursor position to the start of the current line.
 Erase from the current cursor position up the specified amount of rows.
 
 
+### clear
+
+#### screen
+Clear the terminal screen. (Viewport)
+
+
 ## Credit
 
 This is a fork of [ansi-escapes](https://github.com/sindresorhus/ansi-escapes).

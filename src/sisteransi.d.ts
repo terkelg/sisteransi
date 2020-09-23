@@ -1,5 +1,4 @@
 export const beep: string;
-export const clear: string;
 
 export namespace cursor {
     export const left: string;
@@ -32,4 +31,8 @@ export namespace erase {
     export function up(count?: number): string;
     export function down(count?: number): string;
     export function lines(count: number): string;
+}
+
+export namespace clear {
+    export const screen: string;
 }

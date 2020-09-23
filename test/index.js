@@ -4,9 +4,9 @@ const test = require('tape');
 const ansi = require('../src');
 
 test('basic', t => {
-  t.plan(6);
+  t.plan(7);
   t.equal(typeof ansi, 'object');
-  let expect = ['cursor', 'scroll', 'erase', 'beep'];
+  let expect = ['cursor', 'scroll', 'erase', 'beep', 'clear'];
   expect.forEach(x => t.equal(x in ansi, true));
   t.equal(typeof ansi.beep, 'string');
 });
@@ -85,4 +85,11 @@ test('erase', t => {
   t.equal(e.down(2), `\x1b[J\x1b[J`);
   t.equal(e.down(0), ``);
   t.equal(e.lines(2), '\x1b[2K\x1b[1A\x1b[2K\x1b[G');
+});
+
+test('clear', t => {
+  t.plan(2);
+  let c = ansi.clear;
+  t.equal(typeof c, 'object');
+  t.equal(typeof c.screen, 'string');
 });
