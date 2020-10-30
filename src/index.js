@@ -55,4 +55,8 @@ const erase = {
   }
 }
 
-module.exports = { cursor, scroll, erase, beep };
+const clear = {
+  screen: `${ESC}c`
+}
+
+module.exports = { cursor, scroll, erase, beep, clear };
