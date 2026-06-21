@@ -8,8 +8,10 @@
 npm install sisteransi
 ```
 
-> **Note:** `sisteransi` 2.0 is **ESM-only** and requires **Node.js >= 20**.
-> If you need CommonJS or older Node, stay on the `1.x` line.
+> **Note:** `sisteransi` 2.0 is **ESM-only** and needs **Node.js >= 20**.
+> `import` works on any Node 20+, and CommonJS can `require()` it on
+> Node 20.19+ (where `require(esm)` is unflagged). Stay on the `1.x`
+> line only if you're on older Node.
 > (Contributing? The test suite runs the TypeScript source directly via
 > Node's type stripping, so local development needs Node.js >= 22.)
 

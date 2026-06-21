@@ -45,4 +45,4 @@ jobs:
       run: npm run build
 
     - name: Smoke test built output
-      run: node -e "import('./dist/index.js').then(m => { if (typeof m.cursor.up(1) !== 'string') process.exit(1); console.log('dist ok on ' + process.version); })"
+      run: node scripts/smoke.js

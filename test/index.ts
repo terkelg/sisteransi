@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 import * as ansi from '../src/index.ts';
-const { cursor, scroll, erase, beep, clear } = ansi;
+import { cursor, scroll, erase, beep, clear } from '../src/index.ts';
 
 test('basic', () => {
   assert.equal(typeof ansi, 'object');
