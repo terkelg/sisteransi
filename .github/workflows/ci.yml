@@ -1,36 +1,48 @@
 name: CI
 
-on: push
+on: [push, pull_request]
+
+permissions:
+  contents: read
 
 jobs:
   test:
-    name: Node.js v${{ matrix.nodejs }} (${{ matrix.os }})
-    runs-on: ${{ matrix.os }}
+    name: Node.js v${{ matrix.nodejs }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        nodejs: [10, 12]
-        os: [ubuntu-latest]
+        nodejs: [22, 24]
     steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
+    - uses: actions/checkout@v6
 
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v6
       with:
         node-version: ${{ matrix.nodejs }}
 
     - name: Install
-      run: |
-        npm install
-        npm install -g nyc
+      run: npm ci
 
-    - name: Test w/ Coverage
-      run: npx nyc npm test
+    - name: Build
+      run: npm run build
 
-    - name: Report
-      if: matrix.nodejs >= 12
-      run: |
-        npx nyc report --reporter=text-lcov > coverage.lcov
-        bash <(curl -s https://codecov.io/bash)
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    - name: Test
+      run: npm test
+
+  dist:
+    name: Built output on Node.js v20
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 20
+
+    - name: Install
+      run: npm ci
+
+    - name: Build
+      run: npm run build
+
+    - name: Smoke test built output
+      run: node scripts/smoke.js

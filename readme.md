@@ -1,4 +1,4 @@
-# sister ANSI [![Version](https://img.shields.io/npm/v/sisteransi.svg)](https://www.npmjs.com/package/sisteransi) [![Build Status](https://travis-ci.org/terkelg/sisteransi.svg?branch=master)](https://travis-ci.org/terkelg/sisteransi) [![Downloads](https://img.shields.io/npm/dm/sisteransi.svg)](https://www.npmjs.com/package/sisteransi)
+# sister ANSI [![Version](https://img.shields.io/npm/v/sisteransi.svg)](https://www.npmjs.com/package/sisteransi) [![CI](https://github.com/terkelg/sisteransi/actions/workflows/ci.yml/badge.svg)](https://github.com/terkelg/sisteransi/actions/workflows/ci.yml) [![Downloads](https://img.shields.io/npm/dm/sisteransi.svg)](https://www.npmjs.com/package/sisteransi)
 
 > Ansi escape codes faster than you can say "[Bam bam](https://www.youtube.com/watch?v=OcaPu9JPenU)".
 
@@ -8,20 +8,27 @@
 npm install sisteransi
 ```
 
+> **Note:** `sisteransi` 2.0 is **ESM-only** and needs **Node.js >= 20**.
+> `import` works on any Node 20+, and CommonJS can `require()` it on
+> Node 20.19+ (where `require(esm)` is unflagged). Stay on the `1.x`
+> line only if you're on older Node.
+> (Contributing? The test suite runs the TypeScript source directly via
+> Node's type stripping, so local development needs Node.js >= 22.)
+
 
 ## Usage
 
 ```js
-const ansi = require('sisteransi');
-// or const { cursor } = require('sisteransi');
+import { cursor } from 'sisteransi';
+// or grab everything: import * as ansi from 'sisteransi';
 
 const p = str => process.stdout.write(str);
 
 // move cursor to 2, 1
-p(ansi.cursor.to(2, 1));
+p(cursor.to(2, 1));
 
-// two up, one down
-p(ansi.cursor.up(2)+ansi.cursor.down(1));
+// up two, down one
+p(cursor.up(2) + cursor.down(1));
 ```
 
 ## API
