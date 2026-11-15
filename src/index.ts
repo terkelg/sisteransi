@@ -4,7 +4,7 @@ const beep = '\u0007';
 
 const cursor = {
   to(x: number, y?: number): string {
-    if (!y) return `${CSI}${x + 1}G`;
+    if (y === undefined) return `${CSI}${x + 1}G`;
     return `${CSI}${y + 1};${x + 1}H`;
   },
   move(x: number, y: number): string {

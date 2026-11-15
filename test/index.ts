@@ -30,6 +30,9 @@ test('cursor', () => {
   assert.equal(typeof c.restore, 'string');
   assert.equal(c.to(0), '\x1b[1G');
   assert.equal(c.to(2, 2), '\x1b[3;3H');
+  assert.equal(c.to(0, 0), '\x1b[1;1H');
+  assert.equal(c.to(5, 0), '\x1b[1;6H');
+  assert.equal(c.to(5), '\x1b[6G');
   assert.equal(c.move(1, 4), '\x1b[1C\x1b[4B');
   assert.equal(c.up(), '\x1b[1A');
   assert.equal(c.up(1), '\x1b[1A');
